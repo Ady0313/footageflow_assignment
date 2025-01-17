@@ -1,5 +1,6 @@
-// frontend/src/api.js
-const API_URL = "http://127.0.0.1:5000"; // Update if hosted elsewhere
+// api.js
+// Use the environment variable for the backend URL, falling back to the local URL for development
+const API_URL = process.env.REACT_APP_BACKEND_URL || "http://127.0.0.1:5000"; // Default to local if not set
 
 // Function to upload a file
 export const uploadFile = async (file) => {
