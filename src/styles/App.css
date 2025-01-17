@@ -1,0 +1,440 @@
+/* Global Reset and Body Styles */
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  font-size: 0.875rem;
+  font-family: 'Roboto', sans-serif;
+  background: #191c24; /* Global background */
+  color: #fff; /* Text color for contrast */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* General Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  margin: 0;
+  color: #fff;
+}
+
+h1 {
+  font-size: 2.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+h1:hover {
+  transform: scale(1.1);
+  color: #007bff;
+}
+
+h2 {
+  font-size: 2rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #191c24; /* Consistent background */
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #007bff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.5s ease, border-bottom 0.3s ease;
+}
+
+.navbar:hover {
+  background-color: #1f2330;
+  border-bottom: 1px solid #da8cff;
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  margin: 0 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #007bff;
+  transform: scale(1.1);
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+.navbar .logo:hover {
+  color: #da8cff;
+}
+
+.navbar .nav-links {
+  display: flex;
+  list-style: none;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #191c24;
+  color: #fff;
+  animation: fadeIn 0.7s ease-in-out;
+}
+
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #191c24;
+  color: #fff;
+  transition: box-shadow 0.5s ease;
+}
+
+.page-container:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* HomePage */
+.home-page {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: #191c24;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  animation: bounceIn 1s ease-in-out;
+}
+
+.home-page h1 {
+  color: #007bff;
+}
+
+.home-page p {
+  margin: 1rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.home-page p:hover {
+  opacity: 1;
+}
+
+/* TranscriptionPage */
+.transcription-page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  background-color: #191c24;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.7s ease-in-out;
+}
+
+.transcription-page textarea,
+.transcription-page .file-input {
+  width: 100%;
+  height: 150px;
+  background: #000;
+  color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.transcription-page textarea:focus,
+.transcription-page .file-input:focus {
+  border-color: #da8cff;
+  outline: none;
+}
+
+.transcription-page .submit-btn {
+  padding: 0.5rem 2rem;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.transcription-page .submit-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+/* StoryGeneratorPage */
+.story-generator-page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #191c24;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.7s ease-in-out;
+}
+
+.story-generator-page .story-input {
+  width: 100%;
+  height: 150px;
+  background: #000;
+  color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  resize: none;
+}
+
+.story-generator-page .story-input:focus {
+  border-color: #9a55ff;
+  outline: none;
+}
+
+.story-generator-page .generate-button {
+  background: linear-gradient(to right, #da8cff, #9a55ff);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.story-generator-page .generate-button:hover {
+  background: linear-gradient(to right, #9a55ff, #da8cff);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .navbar .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+}
+/* Updated global text color */
+body {
+  color: #a29bfe; /* Soft purple-violet for text */
+}
+
+/* Headings with gradient or specific color */
+h1, h2, h3, h4, h5, h6 {
+  color: #74b9ff; /* Aqua text color for headings */
+}
+
+h1:hover, h2:hover, h3:hover {
+  color: #6c5ce7; /* Deeper purple for hover effect */
+}
+
+/* Navbar styles */
+.navbar a {
+  color: #74b9ff; /* Aqua link color */
+}
+
+.navbar a:hover {
+  color: #6c5ce7; /* Purple hover for navbar links */
+}
+
+.navbar .logo {
+  color: #6c5ce7; /* Purple for the logo */
+}
+
+.navbar .logo:hover {
+  color: #74b9ff; /* Aqua hover effect */
+}
+
+/* TranscriptionPage text updates */
+.transcription-page h2 {
+  color: #6c5ce7; /* Purple heading for TranscriptionPage */
+}
+
+.transcription-page textarea,
+.transcription-page .file-input {
+  color: #a29bfe; /* Soft purple for text */
+  background: #191c24;
+}
+
+/* StoryGeneratorPage text updates */
+.story-generator-page h2 {
+  color: #74b9ff; /* Aqua heading for StoryGeneratorPage */
+}
+
+.story-generator-page .story-input {
+  color: #a29bfe; /* Purple text in textarea */
+}
+
+.story-generator-page .generate-button {
+  background: linear-gradient(to right, #74b9ff, #6c5ce7); /* Aqua to purple gradient */
+}
+
+/* HomePage */
+.home-page h1 {
+  color: #74b9ff; /* Aqua for HomePage title */
+}
+
+.home-page p {
+  color: #a29bfe; /* Purple-violet for HomePage text */
+}
+/* Styling for <p> tag */
+p {
+  font-size: 1.2rem; /* Increase text size */
+  line-height: 1.8; /* Enhance readability with proper spacing */
+  color: #a29bfe; /* Purple-violet for paragraph text */
+  margin: 1rem 0; /* Add spacing around paragraphs */
+  text-shadow: 0 1px 4px rgba(114, 123, 220, 0.5); /* Subtle glow effect */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and animation */
+  animation: fadeInUp 1s ease-in-out; /* Entry animation */
+}
+
+/* Hover effect for <p> tag */
+p:hover {
+  color: #74b9ff; /* Aqua color on hover */
+  transform: translateY(-3px); /* Slight upward movement */
+  text-shadow: 0 2px 6px rgba(116, 185, 255, 0.8); /* Glow intensifies */
+}
+
+/* Animation for paragraph entry */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Styling for textboxes (input, textarea) */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border: 2px solid #9a55ff; /* Violet border */
+  border-radius: 8px;
+  background: #1e2230; /* Dark background for contrast */
+  color: #fff; /* White text */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5); /* Inner shadow for depth */
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #74b9ff; /* Aqua border on focus */
+  outline: none; /* Remove default outline */
+  transform: scale(1.02); /* Slight scaling effect */
+  box-shadow: 0 4px 10px rgba(116, 185, 255, 0.5); /* Outer glow effect */
+}
+
+/* Styling for buttons */
+button {
+  background: linear-gradient(45deg, #9a55ff, #74b9ff); /* Gradient background */
+  color: #fff; /* White text */
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add depth */
+  transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  background: linear-gradient(45deg, #74b9ff, #9a55ff); /* Reverse gradient */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+}
+
+button:active {
+  transform: scale(0.98); /* Shrink on click */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); /* Reduced shadow */
+}
+
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 250px;
+  background: #1e2230;
+  color: #fff;
+  padding: 2rem 1rem;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.sidebar h3 {
+  margin-bottom: 1rem;
+  color: #74b9ff;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 1rem 0;
+}
+
+.sidebar ul li a {
+  color: #a29bfe;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
