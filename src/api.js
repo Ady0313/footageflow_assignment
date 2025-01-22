@@ -1,5 +1,4 @@
 // api.js
-// Use the environment variable for the backend URL, falling back to the local URL for development
 const API_URL = process.env.REACT_APP_BACKEND_URL || "http://127.0.0.1:5000"; // Default to local if not set
 
 // Function to upload a file
@@ -7,7 +6,7 @@ export const uploadFile = async (file) => {
   const formData = new FormData();
   formData.append("file", file);
 
-  const response = await fetch(`${API_URL}/transcribe`, {
+  const response = await fetch(`${API_URL}/api/upload`, { // Updated endpoint
     method: "POST",
     body: formData,
   });
@@ -22,7 +21,7 @@ export const uploadFile = async (file) => {
 
 // Function to search through transcriptions
 export const searchTranscriptions = async (query) => {
-  const response = await fetch(`${API_URL}/search_transcriptions`, {
+  const response = await fetch(`${API_URL}/api/search_transcriptions`, { // Corrected endpoint
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -40,7 +39,7 @@ export const searchTranscriptions = async (query) => {
 
 // Function to generate a story based on user prompt
 export const generateStory = async (prompt) => {
-  const response = await fetch(`${API_URL}/api/generate_story`, {  // Corrected the URL
+  const response = await fetch(`${API_URL}/api/generate_story`, { // Corrected endpoint
     method: "POST",
     headers: {
       "Content-Type": "application/json",
