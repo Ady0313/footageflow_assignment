@@ -1,12 +1,21 @@
 import React, { useState } from "react";
-import { uploadFile } from "../api"; // Correct import for uploadFile
+import { uploadFile } from "../api";
 
 const TranscriptionPage = () => {
   const [file, setFile] = useState(null);
   const [uploadMessage, setUploadMessage] = useState("");
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    const allowedExtensions = ["mp4", "mkv", "avi", "mov"];
+    const fileExtension = selectedFile?.name.split(".").pop().toLowerCase();
+
+    if (!allowedExtensions.includes(fileExtension)) {
+      alert("Invalid file type. Please upload a video file (.mp4, .mkv, .avi, .mov).");
+      setFile(null);
+    } else {
+      setFile(selectedFile);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -15,9 +24,9 @@ const TranscriptionPage = () => {
       setUploadMessage("Uploading...");
       try {
         const response = await uploadFile(file);
-        setUploadMessage(`Transcription completed: ${response.transcription}`);
+        setUploadMessage(`File uploaded successfully. Transcription: "${response.transcription_text}"`);
       } catch (error) {
-        setUploadMessage(`Error: ${error.message}`);
+        setUploadMessage(`Error: ${error.message || "Unexpected error occurred."}`);
       }
     } else {
       setUploadMessage("No file selected.");
@@ -46,7 +55,7 @@ const TranscriptionPage = () => {
             Upload
           </button>
         </form>
-        {uploadMessage && <p>{uploadMessage}</p>}
+        {uploadMessage && <p style={styles.message}>{uploadMessage}</p>}
       </div>
     </div>
   );
@@ -65,7 +74,7 @@ const styles = {
     textAlign: "center",
   },
   description: {
-    textAlign: "left",
+    textAlign: "center",
     marginBottom: "20px",
   },
   transcriptionPage: {
@@ -73,8 +82,9 @@ const styles = {
   },
   transcriptionForm: {
     display: "flex",
-    alignItems: "center",  // Align input and button horizontally
-    gap: "15px",           // Add space between input and button
+    flexDirection: "column", // Stacks items vertically for responsiveness
+    gap: "15px",
+    alignItems: "center", // Center-align form inputs
   },
   fileInput: {
     padding: "10px",
@@ -83,7 +93,7 @@ const styles = {
     border: "1px solid #ccc",
     outline: "none",
     width: "100%",
-    maxWidth: "400px",  // Limit width of file input
+    maxWidth: "400px",
   },
   submitBtn: {
     padding: "10px 15px",
@@ -94,6 +104,10 @@ const styles = {
     color: "#fff",
     cursor: "pointer",
     transition: "background-color 0.3s ease",
+  },
+  message: {
+    textAlign: "center",
+    marginTop: "15px",
   },
 };
 
